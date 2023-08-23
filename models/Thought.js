@@ -1,5 +1,6 @@
 const {Schema, model } = require ('mongoose');
 
+
 //schema for new Thought
 const thoughtSchema = new Schema(
   {
@@ -10,7 +11,23 @@ const thoughtSchema = new Schema(
       minLength: 280
     },
     createdAt: {
-      
-    }
+      type: Data,
+      default: Date.now,
+      get: timestamp => dateFormat(timestamp)
+    },
+    username: {
+      type: String,
+      require: true
+    },
+    reactions : [reactionSchema]
+  },
+  {
+    toJson: {
+      getters: true
+    },
+    id: false
   }
-)
+);
+
+const Thought = model('Thought', thoughtSchema);
+module.exports = Thought;
