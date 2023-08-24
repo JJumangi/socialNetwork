@@ -7,6 +7,7 @@ const userControl = {
       const userData = await User.find().select('-__v');
       res.json(userData);
     }catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   },
@@ -68,3 +69,4 @@ async deleteUser(req, res) {
   }
 }
 };
+module.exports= userControl
