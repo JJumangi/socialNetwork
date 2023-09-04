@@ -8,7 +8,7 @@ const thoughtSchema = new Schema(
       type: String,
       require: "Place thought here",
       minLength: 1,
-      minLength: 280
+      maxLength: 280
     },
     createdAt: {
       type: Date,
